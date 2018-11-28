@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular-route.js"></script>
+</head>
+<body ng-app="myApp">
+	<div ng-view></div>
+	<script type="text/javascript">
+		var app = angular.module("myApp",["ngRoute"])
+		app.config(function($routeProvider){
+			$routeProvider
+			.when('/',{
+				templateUrl: 'contact.html',
+				controller: 'test'
+			}).when('/spider',{
+				templateUrl: 'spider.html',
+				controller: 'rest'
+			})
+		})
+		app.controller("test", function($scope){
+			$scope.test = "Anshul contact page"
+		})
+		app.controller("rest", function($scope){
+			$scope.best = "I am spider man"
+			$scope.getme = function() {
+				console.log($scope.test)
+			}
+		})
+	</script>
+</body>
+</html>
